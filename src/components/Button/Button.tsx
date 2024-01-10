@@ -1,21 +1,21 @@
 import { type FC, type ComponentPropsWithoutRef } from 'react';
 
 type ButtonProps = {
-    type: 'button';
+    el: 'button';
     text: string;
 } & ComponentPropsWithoutRef<'button'>;
 
 type LinkProps = {
-    type: 'link';
+    el: 'link';
     text: string;
 } & ComponentPropsWithoutRef<'a'>;
 
 type Props = ButtonProps | LinkProps;
 
 const Button: FC<Props> = (props) => {
-    const { type, text } = props;
+    const { el, text } = props;
 
-    if (type === 'link') return (<a {...props}>{text}</a>);
+    if (el === 'link') return (<a {...props}>{text}</a>);
 
     return (<button {...props}>{text}</button>);
 };
